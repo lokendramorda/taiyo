@@ -40,11 +40,14 @@ Create a LineGraph.js component to render the linear graph.
 
 Import necessary components from react-chartjs-2 and chart.js and configure the data and options for the graph.
 
-Usage
+Fetch the covid case data from Api endpoints.
+```bash
+https://disease.sh/v3/covid-19/historical/all?lastdays=all
+```
 Use the LineGraph component to render the linear graph. Pass the COVID-19 case data as a prop to the component.
 
 ```bash
-<LineGraph data={covidCaseData} />
+<LineGraph data={data.cases} />
 ```
 
 ## COVID-19 Map with React Leaflet
@@ -60,10 +63,25 @@ Create a CovidMap.js component to render the COVID-19 map.
 
 Import necessary components from react-leaflet and leaflet and set up the map with markers.
 
-Use the CovidMap component to render the COVID-19 map. Pass COVID-19 data as a prop to the component.
+Fetch the Countries data from Api endpoints.
+```bash
+https://disease.sh/v3/covid-19/countries
+```
+
+Use the CovidMap component to render the COVID-19 map. Pass Countries data to the component.
 
 ```bash
- <CovidMap data={covidMapData} />
+ <MapContainer>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+        {countriesData.map((country) => (
+          <Marker>
+            <Popup>
+             
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
 ```
 
 
